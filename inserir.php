@@ -1,11 +1,16 @@
 <?php
+
+ob_start();
+
 require_once('conn.php');
+
 ?>
 
 
 
-
 <?php
+
+
 
 $prod =  $_POST['nome'];
 $quant = $_POST['quantidade'];
@@ -24,7 +29,10 @@ if(mysqli_num_rows($query) > 0) {
 if(!$query) {
   echo "Erro ao inserir";
 } else {
-  header ("location: index.php");
+    header("location: index.php");
+ob_end_flush();
 }
+
+
 
 ?>
